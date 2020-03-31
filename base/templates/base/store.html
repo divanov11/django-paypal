@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Store</title>
+	<meta id="meta" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+	<style type="text/css">
+		body{
+			background-color: #f0f0f0;
+		}
+		img{
+			max-width: 228px;
+			max-height: 346px;
+			box-shadow: 0 2px 5px 1px rgba(0,0,0,.2);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			{% for product in products %}
+
+				<div class="col-lg-6">
+					<br>
+					<div class="card card-body">
+						<h4>{{product.name}}</h4>
+						<img src={{product.image_url}}>
+						<hr>
+						<p>{{product.description}}</p>
+						<hr>
+						<h4>${{product.price}}</h4>
+						<hr>
+						<a target="_blank" class="btn btn-sm btn-warning" href="{% url 'checkout' product.id  %}">Buy Now</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</body>
+</html>
